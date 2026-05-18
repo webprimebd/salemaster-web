@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SaleMaster - Sales & Profit</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f6f9; display: flex; }
+        .sidebar { width: 250px; background-color: #2c3e50; height: 100vh; color: white; position: fixed; padding-top: 20px; }
+        .sidebar h2 { text-align: center; margin-bottom: 30px; font-size: 24px; color: #1abc9c; }
+        .sidebar a { display: block; color: #bdc3c7; padding: 15px 25px; text-decoration: none; font-size: 16px; transition: 0.3s; }
+        .sidebar a:hover, .sidebar a.active { background-color: #34495e; color: white; border-left: 4px solid #1abc9c; }
+        .main-content { margin-left: 250px; padding: 40px; width: calc(100% - 250px); }
+        .report-box { background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        .profit-calculation { background-color: #e8f8f5; border-left: 6px solid #2ecc71; padding: 20px; margin-top: 20px; border-radius: 4px; }
+        .profit-calculation h2 { margin: 0; color: #27ae60; }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>SaleMaster</h2>
+    <a href="/dashboard">📊 Dashboard</a>
+    <a href="/products">📦 Stock/Products</a>
+    <a href="/sales" class="active">💼 Sales & Profit</a>
+    <a href="/login">🚪 Logout</a>
+</div>
+
+<div class="main-content">
+    <h1>💼 Sales & Profit Report</h1>
+    <p style="color: #7f8c8d;">আপনার ব্যবসার মোট বিক্রয়মূল্য এবং নীট লাভের লাইভ হিসাব বিবরণী।</p>
+
+    <div class="report-box">
+        <h3>💰 Financial Summary</h3>
+        <hr>
+        <p><strong>Total Sales Valuation:</strong> <span th:text="'$' + ${#numbers.formatDecimal(totalValuation, 1, 2)}">$0.00</span></p>
+        <p><strong>Profit Margin Rate:</strong> 20% (Standard fixed rate)</p>
+        
+        <div class="profit-calculation">
+            <p style="margin: 0 0 5px 0; font-weight: bold; color: #7f8c8d; text-transform: uppercase;">Net Estimated Profit</p>
+            <h2><span th:text="'$' + ${#numbers.formatDecimal(estimatedProfit, 1, 2)}">$0.00</span></h2>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
