@@ -4,7 +4,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Run stage
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jre-jammy
 COPY --from=build /target/management-0.0.1-SNAPSHOT.jar management.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","management.jar"]
