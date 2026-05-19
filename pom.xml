@@ -7,7 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.3.0</version>
-		<relativePath/> 
+		<relativePath/>
 	</parent>
 
 	<groupId>com.stock</groupId>
@@ -64,10 +64,6 @@
 					<mainClass>com.stock.management.ManagementApplication</mainClass>
 				</configuration>
 			</plugin>
-		</plugins>
-	</build>
-
-</project>
 		</plugins>
 	</build>
 
